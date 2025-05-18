@@ -174,3 +174,84 @@ The API will be available at `http://localhost:8000`
 - new_quantity: New quantity
 - change_date: Change timestamp
 - change_reason: Reason for the change
+
+### Product Endpoints
+curl -X GET "http://localhost:8000/products/"
+
+curl -X POST "http://localhost:8000/products/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "New Product",
+    "category": "Electronics",
+    "price": 49.99,
+    "description": "A new electronic product"
+  }'
+
+### Sales Endpoints
+ # Get all sales
+curl -X GET "http://localhost:8000/sales/"
+
+# Get sales with date range
+curl -X GET "http://localhost:8000/sales/?start_date=2024-01-01T00:00:00Z&end_date=2024-03-20T23:59:59Z"
+
+# Get sales for specific product
+curl -X GET "http://localhost:8000/sales/?product_id=1"
+
+# Get sales for specific category
+curl -X GET "http://localhost:8000/sales/?category=Electronics"
+
+
+# create sales for testing
+curl -X POST "http://localhost:8000/sales/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "product_id": 1,
+    "quantity": 2,
+    "total_amount": 99.98
+  }'
+
+# Daily revenue
+curl -X GET "http://localhost:8000/sales/revenue/daily?start_date=2024-03-01&end_date=2024-03-20"
+
+# Weekly revenue
+curl -X GET "http://localhost:8000/sales/revenue/weekly?start_date=2024-03-01&end_date=2024-03-20"
+
+# Monthly revenue
+curl -X GET "http://localhost:8000/sales/revenue/monthly?start_date=2024-01-01&end_date=2024-03-20"
+
+# Annual revenue
+curl -X GET "http://localhost:8000/sales/revenue/annual?start_date=2024-01-01&end_date=2024-12-31"
+
+curl -X GET "http://localhost:8000/sales/summary?start_date=2024-03-01T00:00:00Z&end_date=2024-03-20T23:59:59Z"
+
+curl -X GET "http://localhost:8000/sales/revenue/annual?start_date=2024-01-01T00:00:00Z&end_date=2024-12-31T23:59:59Z"
+
+curl -X GET "http://localhost:8000/sales/by-category?start_date=2024-03-01T00:00:00Z&end_date=2024-03-20T23:59:59Z"
+
+curl -X GET "http://localhost:8000/sales/by-product?start_date=2024-03-01T00:00:00Z&end_date=2024-03-20T23:59:59Z"
+
+### Inventory Endpoints
+curl -X GET "http://localhost:8000/inventory/"
+
+curl -X POST "http://localhost:8000/inventory/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "product_id": 1,
+    "quantity": 100,
+    "low_stock_threshold": 10
+  }'
+
+
+  curl -X PUT "http://localhost:8000/inventory/1" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "quantity": 50,
+    "change_reason": "Stock adjustment after inventory count"
+  }'
+
+
+  curl -X GET "http://localhost:8000/inventory/low-stock"
+
+  curl -X GET "http://localhost:8000/inventory/summary"  
+
+  curl -X GET "http://localhost:8000/inventory/recently-updated"
