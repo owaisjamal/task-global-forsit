@@ -193,7 +193,7 @@ curl -X POST "http://localhost:8000/products/" \
 curl -X GET "http://localhost:8000/sales/"
 
 # Get sales with date range
-curl -X GET "http://localhost:8000/sales/?start_date=2024-01-01T00:00:00Z&end_date=2024-03-20T23:59:59Z"
+curl -X GET "http://localhost:8000/sales/?start_date=2024-01-01&end_date=2024-03-20"
 
 # Get sales for specific product
 curl -X GET "http://localhost:8000/sales/?product_id=1"
@@ -223,13 +223,13 @@ curl -X GET "http://localhost:8000/sales/revenue/monthly?start_date=2024-01-01&e
 # Annual revenue
 curl -X GET "http://localhost:8000/sales/revenue/annual?start_date=2024-01-01&end_date=2024-12-31"
 
-curl -X GET "http://localhost:8000/sales/summary?start_date=2024-03-01T00:00:00Z&end_date=2024-03-20T23:59:59Z"
+curl -X GET "http://localhost:8000/sales/summary?start_date=2024-03-01&end_date=2024-03-20"
 
-curl -X GET "http://localhost:8000/sales/revenue/annual?start_date=2024-01-01T00:00:00Z&end_date=2024-12-31T23:59:59Z"
+curl -X GET "http://localhost:8000/sales/revenue/annual?start_date=2024-01-01&end_date=2024-12-31"
 
-curl -X GET "http://localhost:8000/sales/by-category?start_date=2024-03-01T00:00:00Z&end_date=2024-03-20T23:59:59Z"
+curl -X GET "http://localhost:8000/sales/by-category?start_date=2024-03-01&end_date=2024-03-20"
 
-curl -X GET "http://localhost:8000/sales/by-product?start_date=2024-03-01T00:00:00Z&end_date=2024-03-20T23:59:59Z"
+curl -X GET "http://localhost:8000/sales/by-product?start_date=2024-03-01&end_date=2024-03-20"
 
 # Inventory Endpoints
 curl -X GET "http://localhost:8000/inventory/"
