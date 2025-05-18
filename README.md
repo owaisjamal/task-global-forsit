@@ -25,8 +25,8 @@ A comprehensive API for managing operations, including sales analysis, inventory
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd ecommerce-admin-api
+git clone https://github.com/owaisjamal/task-global-forsit.git
+cd task-global-forsit
 ```
 
 
